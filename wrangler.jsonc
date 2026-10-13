@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "agentic-inbox",
+	"name": "clean-inbox",
 	"compatibility_date": "2025-11-28",
 	"main": "./workers/app.ts",
 	"observability": {
@@ -25,26 +25,15 @@
 	"r2_buckets": [
 		{
 			"binding": "BUCKET",
-			"bucket_name": "agentic-inbox",
-			"preview_bucket_name": "agentic-inbox"
+			"bucket_name": "clean-inbox",
+			"preview_bucket_name": "clean-inbox"
 		}
 	],
-	"ai": {
-		"binding": "AI"
-	},
 	"durable_objects": {
 		"bindings": [
 			{
 				"name": "MAILBOX",
 				"class_name": "MailboxDO"
-			},
-			{
-				"name": "EMAIL_AGENT",
-				"class_name": "EmailAgent"
-			},
-			{
-				"name": "EMAIL_MCP",
-				"class_name": "EmailMCP"
 			}
 		]
 	},
@@ -53,18 +42,6 @@
 			"tag": "v1",
 			"new_sqlite_classes": [
 				"MailboxDO"
-			]
-		},
-		{
-			"tag": "v2",
-			"new_sqlite_classes": [
-				"EmailAgent"
-			]
-		},
-		{
-			"tag": "v3",
-			"new_sqlite_classes": [
-				"EmailMCP"
 			]
 		}
 	]
